@@ -21,6 +21,7 @@ namespace TournamentTracker
 
             // ************ Calculates number of tournament rounds based on how many teams is entered
             // start
+            
             while (numberTeams > 1)
             {
                 int numberOneLess = numberTeams - 1;
@@ -61,6 +62,7 @@ namespace TournamentTracker
 
             int numberRounds = counter;
 
+// *************** storage for program *******************************************************
             Class.Team[] originalTeams = new Class.Team[originalNumber];
 
             for (int i = 0; i < originalTeams.Length; i++)

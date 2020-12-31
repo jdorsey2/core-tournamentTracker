@@ -4,6 +4,9 @@ using System.Text;
 
 namespace TournamentTracker.Class
 {
+    /// <summary>
+    /// Includes menus and sub-menus of program, to de-clutter Main method.
+    /// </summary>
     class Menu
     {
         public static void WelcomeMenu()

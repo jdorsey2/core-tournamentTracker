@@ -4,20 +4,39 @@ using System.Text;
 
 namespace TournamentTracker.Class
 {
+    /// <summary>
+    /// Describes two teams that are matched with each other to compete. Contains any two objects
+    /// of type Team and a name of the match.
+    /// </summary>
     class Match
     {
         public string name { get; set; }
         public Team teamOne { get; set; }
         public Team teamTwo { get; set; }
 
-        public Match ConvertTeamToMatch(Match match, Team one, Team two)
-        {                                                             // enter two teams given a match
-            match.teamOne = one;                              // can name the match seperately
-            match.teamTwo = two;
+        /// <summary>
+        /// Takes two objects of type Team and places them in a Match object. Reorganizes any two
+        /// teams as having a matching (playing) relationship.
+        /// </summary>
+        /// <param name="match">An object of type Match</param>
+        /// <param name="teamOne">first object of type Team</param>
+        /// <param name="teamTwo">second object of type Team</param>
+        /// <returns>an object of type Match</returns>
+        public Match ConvertTeamToMatch(Match match, Team teamOne, Team teamTwo)
+        {                                                             
+            match.teamOne = teamOne;                              
+            match.teamTwo = teamTwo;
 
             return match;
         }
 
+        /// <summary>
+        /// Searches an collection of matches for the name of a match. 
+        /// </summary>
+        /// <param name="name">any string that is a name for a match</param>
+        /// <param name="matches">an array of objects of type Match</param>
+        /// <returns>an object of type Match that contains the name of the match, if no name is 
+        /// found it returns a null match.</returns>
         public Match SearchForMatch(string name, Match[] matches)
         {
             Match match = new Match();
@@ -32,7 +51,12 @@ namespace TournamentTracker.Class
             return match;
         }
 
-        public Match EnterNameMatch(Match match)  // name a specific match between two teams
+        /// <summary>
+        /// Give a match a name. Checks for empty input and that the length is under 25 characters.
+        /// </summary>
+        /// <param name="match">An object of type Match.</param>
+        /// <returns>An object of type Match with the given name.</returns>
+        public Match EnterNameMatch(Match match) 
         {
             Console.WriteLine("Please enter a name for the match");
             string matchName = Console.ReadLine();
@@ -43,7 +67,12 @@ namespace TournamentTracker.Class
             return match;
         }
 
-
+        /// <summary>
+        /// Enter the score of the teams that are matched up together. Contains checks for empty input,
+        /// that it is under 25 characters and that it is a digit.
+        /// </summary>
+        /// <param name="match">An object of type Match</param>
+        /// <returns>An object of type Match</returns>
         public Match EnterScoreOfTeamsbyMatch(Match match)
         {
             Console.WriteLine("Please enter score");
@@ -65,6 +94,10 @@ namespace TournamentTracker.Class
             return match;
         }
 
+        /// <summary>
+        /// Displays the name and score of the teams in a match, and which teams are paired up.
+        /// </summary>
+        /// <param name="match">An object of type Match</param>
         public void DisplayMatch(Match match)
         {
             Console.WriteLine();
@@ -76,26 +109,33 @@ namespace TournamentTracker.Class
             Console.WriteLine(match.teamTwo.score);
         }
 
-        public Team CompareScores(Team one, Team two)
+        /// <summary>
+        /// Calculates the winner of a match between two teams.
+        /// </summary>
+        /// <param name="teamOne">An object of type Team.</param>
+        /// <param name="teamtwo">An object of type Team</param>
+        /// <returns>the winner, if a team is null or has zero as a score will return 
+        /// a null team.</returns>
+        public Team CompareScores(Team teamOne, Team teamtwo)
         {
-            if (one != null || two != null)
+            if (teamOne != null || teamTwo != null)
             {
-                if (one.score != 0 || two.score != 0)
+                if (teamOne.score != 0 || teamTwo.score != 0)
                 {
-                    if (one.score > two.score)
+                    if (teamOne.score > teamTwo.score)
                     {
-                        two.score = -1;
-                        return one;
+                        teamTwo.score = -1;
+                        return teamOne;
                     }
-                    else if (one.score < two.score)
+                    else if (teamOne.score < teamTwo.score)
                     {
-                        one.score = -1;
-                        return two;
+                        teamOne.score = -1;
+                        return teamTwo;
                     }
                     else
                     {
                         Console.WriteLine("tie"); // have a tie, need additional functionality (elimination round) to deal with it
-                        return one; // fix later when tie functionality is updated
+                        return teamOne; // fix later when tie functionality is updated
                     }
                 }
                 else
