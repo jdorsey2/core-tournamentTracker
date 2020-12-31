@@ -1,4 +1,5 @@
 Note: This is a .net Core program
+
 Purpose: This program is a Tournament Tracker. It tracks the progression of wins over a series of tournaments. 
  
    Organization: the Team.cs class keeps track of team data, such as name, score and if they are still competing.

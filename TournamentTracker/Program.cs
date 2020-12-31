@@ -167,12 +167,7 @@ namespace TournamentTracker
                     {
                         originalMatch[i] = originalMatch[i].EnterScoreOfTeamsbyMatch(originalMatch[i]);
                     }
-                    //Console.WriteLine("Please enter scores by team");
-                    //for (int i = 0; i < originalTeams.Length; i++)
-                    //{
-                    //    // figure out how to do this when entering scores by match
-                    //    originalTeams[i] = originalTeams[i].EnterTeamScore(originalTeams[i]);
-                    //}
+                    
                 }
                 else if (input == "E") // calculate winner
                 {
